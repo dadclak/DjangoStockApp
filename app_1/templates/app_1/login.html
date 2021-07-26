@@ -1,0 +1,19 @@
+{% extends "app_2/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+    <div class="row" style="margin-top: 50px">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Log in</h3>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="btn btn-success" value="Log in">
+            </form>
+            <a class="nav-link" href="{% url 'registration' %}">Registration</a>
+        </div>
+    </div>
+{% endblock content %}

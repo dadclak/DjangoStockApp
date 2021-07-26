@@ -1,0 +1,25 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 60%;
+    }
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.table {
+    margin-top: 30px;
+}
+
+.table h3 {
+    text-align: center;
+}
+
+div .row {
+    margin-bottom: 10px;
+}

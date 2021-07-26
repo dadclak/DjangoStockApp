@@ -1,0 +1,47 @@
+{% extends "app_2/layout.html" %}
+
+{% block title %}Main Page{% endblock title %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+        <form id="get-company" method="GET">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <select id="select" class="custom-select custom-select-lg mb-3" required>
+                            <option selected>Choose...</option>
+                            {% for company in companys %}
+                                <option value="{{ company.name }}" data-id="{{ company.id }}">{{ company.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="date" id="start-date" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="date" id="end-date" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div class="table">
+        </div>
+    {% endif %}
+
+    {% if not request.user.is_authenticated %}
+        <div class="alert alert-warning" role="alert">
+            <div class="text-nowrap bd-highlight" style="width: 8rem;">
+                You need to log in to your profile!
+            </div>
+            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+        </div>
+    {% endif %}
+{% endblock content %}
